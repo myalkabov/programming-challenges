@@ -1,3 +1,7 @@
+# General input/ouput txt files
+*.txt
+
+
 # Java
 
 # Compiled class file
