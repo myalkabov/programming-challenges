@@ -11,8 +11,6 @@
 
 N = ARGV[0].to_i
 FNAME = ARGV[1]
-
-
 LOW_CASE = "abcdefghijklmnopqrstuvwxyz"
 UP_CASE  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -20,13 +18,7 @@ UP_CASE  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 shifted_lc_letters = []
 shifted_uc_letters = []
 
-l = 0
-if N >= 0
-  l = N
-else
-  l = 26 + N
-end
-
+l = N < 0 ? 26 + N : N
 
 (l...l+26).each do |i|
   # left shift in a-zA-Z but right shift in caesaar.
@@ -35,12 +27,10 @@ end
   shifted_uc_letters.push(UP_CASE[i])
 end
 
-
 shifted_letters = shifted_lc_letters.join('') + shifted_uc_letters.join('')
-cipher = ""
 
+cipher = ""
 open(FNAME) {|f| cipher = f.read }
 
 decipher = cipher.tr(LOW_CASE + UP_CASE, shifted_letters)
-puts shifted_letters
 puts decipher
