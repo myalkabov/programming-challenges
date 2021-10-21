@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <stdlib.h>
 #include <ctype.h>
+
+#include "../libcs50/cs50.h"
 
 bool isvalid(string arg);
 
